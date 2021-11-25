@@ -1,0 +1,44 @@
+.section-map-image {
+	height: 100vh;
+    position: relative;
+}
+
+.section-map-image > div > div > div {
+	background: none !important;
+	box-shadow: none !important;
+	border: none !important;
+	height: 2rem;
+	width: 2rem;
+}
+
+.section-map-image > div > div > div > button {
+	border-radius: 50px;
+	box-shadow: none !important;
+	background: #2399f9 !important;
+	border: 1px !important;
+	cursor: pointer;
+	height: 50%;
+	width: 50%;
+	transition-duration: 0.5s;
+}
+
+.section-map-image > div > div > div > button:hover {
+	transform: scale(1.25);
+	filter: brightness(75%);
+	border: 1px solid white !important;
+}
+
+.section-menu {
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    z-index: 2;
+}
+
+.section-menu > ul {
+    list-style-type: none;
+}
+
+.section-menu li {
+    cursor: pointer;
+}
