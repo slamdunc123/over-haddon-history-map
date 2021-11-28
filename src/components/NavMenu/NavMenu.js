@@ -28,6 +28,7 @@ const NavMenu = () => {
 					id='offcanvasNavbar'
 					aria-labelledby='offcanvasNavbarLabel'
 					placement='start'
+                    onMouseLeave={() => setIsExpanded(false)}
 				>
 					<Offcanvas.Body>
 						<Nav className='justify-content-end flex-grow-1 pe-3'>

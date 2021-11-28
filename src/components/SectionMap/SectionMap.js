@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import ImageHotspots from 'react-image-hotspots';
 import { Modal, Button } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import sectionData from './sectionData';
 
@@ -13,9 +13,13 @@ const SectionMap = () => {
 	const [modalTitle, setModalTitle] = useState('Title');
 	const [modalBody, setModalBody] = useState('Title');
 
+	const navigate = useNavigate();
+
 	// get id from url
 	const params = useParams();
 	const sectionId = params.id;
+
+	const sectionIds = ['1', '2','3', '4'];
 
 	// get values from section map data
 	const getTitle = (id) => {
@@ -52,8 +56,7 @@ const SectionMap = () => {
 									<button
 										id={1}
 										onClick={(e) => handleShow(e)}
-									>
-									</button>
+									></button>
 								),
 							},
 							{
@@ -64,8 +67,7 @@ const SectionMap = () => {
 									<button
 										id={2}
 										onClick={(e) => handleShow(e)}
-									>
-									</button>
+									></button>
 								),
 							},
 							{
@@ -76,8 +78,7 @@ const SectionMap = () => {
 									<button
 										id={3}
 										onClick={(e) => handleShow(e)}
-									>
-									</button>
+									></button>
 								),
 							},
 						]}
@@ -100,8 +101,7 @@ const SectionMap = () => {
 									<button
 										id={1}
 										onClick={(e) => handleShow(e)}
-									>
-									</button>
+									></button>
 								),
 							},
 							{
@@ -112,8 +112,7 @@ const SectionMap = () => {
 									<button
 										id={2}
 										onClick={(e) => handleShow(e)}
-									>
-									</button>
+									></button>
 								),
 							},
 							{
@@ -124,8 +123,7 @@ const SectionMap = () => {
 									<button
 										id={3}
 										onClick={(e) => handleShow(e)}
-									>
-									</button>
+									></button>
 								),
 							},
 							{
@@ -136,8 +134,7 @@ const SectionMap = () => {
 									<button
 										id={4}
 										onClick={(e) => handleShow(e)}
-									>
-									</button>
+									></button>
 								),
 							},
 							{
@@ -148,8 +145,7 @@ const SectionMap = () => {
 									<button
 										id={5}
 										onClick={(e) => handleShow(e)}
-									>
-									</button>
+									></button>
 								),
 							},
 							{
@@ -160,8 +156,7 @@ const SectionMap = () => {
 									<button
 										id={6}
 										onClick={(e) => handleShow(e)}
-									>
-									</button>
+									></button>
 								),
 							},
 						]}
@@ -185,8 +180,7 @@ const SectionMap = () => {
 									<button
 										id={1}
 										onClick={(e) => handleShow(e)}
-									>
-									</button>
+									></button>
 								),
 							},
 							{
@@ -197,8 +191,7 @@ const SectionMap = () => {
 									<button
 										id={2}
 										onClick={(e) => handleShow(e)}
-									>
-									</button>
+									></button>
 								),
 							},
 							{
@@ -209,8 +202,7 @@ const SectionMap = () => {
 									<button
 										id={3}
 										onClick={(e) => handleShow(e)}
-									>
-									</button>
+									></button>
 								),
 							},
 						]}
@@ -233,8 +225,7 @@ const SectionMap = () => {
 									<button
 										id={1}
 										onClick={(e) => handleShow(e)}
-									>
-									</button>
+									></button>
 								),
 							},
 							{
@@ -245,8 +236,7 @@ const SectionMap = () => {
 									<button
 										id={2}
 										onClick={(e) => handleShow(e)}
-									>
-									</button>
+									></button>
 								),
 							},
 							{
@@ -257,8 +247,7 @@ const SectionMap = () => {
 									<button
 										id={3}
 										onClick={(e) => handleShow(e)}
-									>
-									</button>
+									></button>
 								),
 							},
 						]}
@@ -271,8 +260,12 @@ const SectionMap = () => {
 
 	// filter all section data to get specific section data
 	useEffect(() => {
-		const results = sectionData.filter((d) => d.sectionId == sectionId);
-		setData(results);
+		if (sectionIds.includes(sectionId)) {
+			const results = sectionData.filter((d) => d.sectionId == sectionId);
+			setData(results);
+		} else {
+			navigate('/');
+		}
 	}, [sectionId]);
 
 	return (
